@@ -8,10 +8,10 @@
   #       private: no
   tasks:
     - name: printing URL
-      ansible.builtin.debug
+      ansible.builtin.debug:
         msg: Url that we print is {{ URL }}
     - name: printing url with quotes
-      ansible.builtin.debug
+      ansible.builtin.debug:
         msg:  "{{ URL }} "  
       vars:
         URL: task.google.com 
