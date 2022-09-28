@@ -1,0 +1,8 @@
+- name: demo on copy 
+  hosts: all 
+  tasks:
+    - name: Copy file 
+      ansible.builtin.copy:
+        src: copy-file.txt #/home/centos/copy-file.txt,can create on centosserver with vim copy-file.txt and type something
+        dest: /home/centos/copied-file.txt
+      
