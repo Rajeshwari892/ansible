@@ -1,0 +1,13 @@
+- name: demo on facts
+  hosts: all  
+  tasks: 
+    - name: pritning URL  
+      ansible.builtin.debug:
+        msg: OS Distro is {{ansible_distribution}} 
+
+    - name: pritning Mac Address   
+      ansible.builtin.debug:
+        msg: Mac Address is  {{ansible_default_ipv4.macaddress}}
+
+  # ansible  -i inv -e ansible_user=centos -e ansible_password=DevOps321 -m setup # fetch all system related data select wt ever u need
+  # ansible-playbook  -i inv -e ansible_user=centos -e ansible_password=DevOps321 03-facts.yml

@@ -12,13 +12,14 @@
         msg: Url that we print is {{ URL }}
     - name: printing url with quotes
       ansible.builtin.debug:
-        msg:  "{{ URL }} "  
+        msg:  "{{ URL }} "   # "" is used start of the line
       vars:
         URL: task.google.com 
 
     - name: Printing URL from CLI 
       ansible.builtin.debug:
-        msg: URL_CLI is {{ CLI_URL }} 
+        msg: URL_CLI is {{ CLI_URL }}  # undefines URL_CLI throws error. can be supplied from cmd line -e CLI_URL=cli.google.com
+
 # {{URL}} : This is how you print a variable 
 
 # When to use "" for variables ? when the variable is the start of the line or the only one in the print list 

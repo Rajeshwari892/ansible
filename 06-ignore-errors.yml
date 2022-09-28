@@ -1,0 +1,10 @@
+- name: demo on ignore_errors
+  hosts: all 
+  tasks:
+    - name: Running a shell command  
+      ansible.builtin.shell: ps -ef | grep java | grep -v java #ps-ef is linux cmd used to print processors running on java
+      register: OUT     #we get errorFromPrev cmd to ignore use ignoreCMD
+    
+    - name: printing out variable 
+      ansible.builtin.debug:
+        msg: "staring tomcat service" 

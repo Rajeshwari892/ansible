@@ -1,0 +1,21 @@
+- name: demo on variables
+  hosts: all
+  vars:
+    URL: play.google.com # global variable
+  vars_file:
+    - dev-vars.yml
+  taks:
+    - name: priting url 
+      ansible.builtin.debug:
+        msg: Url that we print is  {{ URL }}
+
+    - name: printing  URL with quotes
+      ansible.builtin.debug:
+        msg: "{{ URL }}" # print local var
+      vars:   # local variable
+        URL: task.google.com
+    - name: URL for this env is
+      ansible.builtin.debug: ansible.builtin.debug or debug both are same.
+        msg: "{{ ENV }}" 
+
+# CLI Variable > local variable > > files_variables>  global variable 
