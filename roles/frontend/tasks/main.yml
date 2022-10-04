@@ -6,5 +6,18 @@
 - name: Download and extract
   ansible.builtin.unarchive:
     src: "https://github.com/stans-robot-project/frontend/archive/main.zip"
+#   dest: /usr/share/nginx/html 
+# in order to clean up old content on nginx keep the dest loc default as tmp folder. document cmd: cd /usr/share/nginx/html, rm -rf *
+    dest: /tmp  # while unzipping file is downloading as frontend-main
+    remote_src: yes
+- name: claenup teh old content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html  # rm -rf *
+    state: absent # delete all directories inside the html
+
+- name: copy the frontend context to nginx path
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/ #  static/ (slash after static word)-> will copy the content inside it
     dest: /usr/share/nginx/html
     remote_src: yes
+
