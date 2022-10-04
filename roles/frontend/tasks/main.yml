@@ -21,3 +21,18 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
+# when u do, git clone https://github.com/stans-robot-project/frontend; cd frontend, ls -ltr cat loaclconf.host, u get to see proxy file
+#  mv localhost.conf /etc/nginx/default.d/roboshop.conf ; need to copy and paste in that location
+
+- name: copy the frontend context to nginx path
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf # remote_src is not req as source  is in frontend
+
+- name: Starting the nginx service
+  ansible.builtin.service:
+    name: httpd
+    state: restarted
+    enabled: yes
+
+
