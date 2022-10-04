@@ -1,7 +1,5 @@
-[prod]
-172.31.31.42
+[frontend]
+frontend.roboshop.internal
 
-[qa]
-172.31.20.155
 
 
