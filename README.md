@@ -71,6 +71,7 @@ Ansible playbooks should always ends with .yml or .yaml. Anything apart from tha
 
 ```
 
+to execuute a playbook
 ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 01-sample.yml
 
 ``` 
