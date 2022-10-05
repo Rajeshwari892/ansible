@@ -1,0 +1,34 @@
+- name: configure yum repo
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Install NodeJS package
+  ansible.builtin.package:
+    name: "{{item}}"
+    state: present
+  loop:
+    - nodejs
+    - gcc-c++
+
+- name: creating the application user
+  ansible.builtin.user:
+    name: "{{APPUSER}}"
+    comment: roboshop application user
+
+- name: claenup the old content
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/ # rm -rf *
+    state: absent # delete all directories inside the html
+
+- name: Download and extract
+  ansible.builtin.unarchive:
+    src: "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+    dest: /tmp
+    remote_src: yes
+
+- name: copy the {{COMPONENT}}-zip context to {{APPUSER}}
+  ansible.builtin.copy:
+    src: /tmp/catalogue.zip
+    dest: /home/{{APPUSER}}/{{COMPONENT}}
+    remote_src: yes
+
+  
