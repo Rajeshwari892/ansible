@@ -31,6 +31,9 @@
     dest: /home/{{APPUSER}}/{{COMPONENT}}/
     remote_src: yes
   become_user: "{{APPUSER}}"  # to execute this code as roboshop user
+- name: Install NodeJS packages based on package.json file 
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/  
 
 - name: Coping systemd file 
   ansible.builtin.copy:
