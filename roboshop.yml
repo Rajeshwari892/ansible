@@ -4,5 +4,5 @@
 
   become: yes # to execute as a root user
   roles:
-    - frontend
-    - mongodb
+    - "{{COMPONENT}}"
+   # - mongodb
