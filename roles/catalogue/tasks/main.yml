@@ -35,12 +35,12 @@
 - name: Coping systemd file 
    ansible.builtin.copy:
     src: systemd.service
-     dest: /etc/systemd/system/{{COMPONENT}}.service 
+    dest: /etc/systemd/system/{{COMPONENT}}.service 
 
  - name: Starting {{COMPONENT}} Service 
    ansible.builtin.systemd:
      name: "{{COMPONENT}}" 
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
+     state: restarted
+     enabled: yes
+     daemon_reload: yes
   
