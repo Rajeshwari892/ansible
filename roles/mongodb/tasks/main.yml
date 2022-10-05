@@ -27,10 +27,10 @@
     dest: /tmp
     remote_src: yes
   
-- name: Create a new schema with name acme in test database
+- name: Loading Catalogue, users Schema
   community.mongodb.mongodb_shell:
-    file: /tmp/mongodb-main/{{item}}.js
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes # once schema is loaded, it allow further changed
   loop:
-      - user
+      - users
       - catalogue
