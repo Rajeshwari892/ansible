@@ -27,8 +27,9 @@
 
 - name: copy the {{COMPONENT}}-zip context to {{APPUSER}}
   ansible.builtin.copy:
-    src: /tmp/catalogue.zip
-    dest: /home/{{APPUSER}}/{{COMPONENT}}
+    src: /tmp/catalogue.zip/
+    dest: /home/{{APPUSER}}/{{COMPONENT}}/
     remote_src: yes
+  become_user: "{{APPUSER}}"  #to execute this code as roboshop user
 
   
