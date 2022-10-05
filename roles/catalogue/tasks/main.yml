@@ -33,7 +33,7 @@
   become_user: "{{APPUSER}}"  # to execute this code as roboshop user
 
 - name: Coping systemd file 
-   ansible.builtin.copy:
+  ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service 
 
