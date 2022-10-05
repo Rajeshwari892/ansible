@@ -1,6 +1,6 @@
 - name: Roboshop project setup
   hosts: "{{COMPONENT}}" # SUPPLY VARIABLE from command line, 
-  #ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 COMPONENT=mongodb roboshop.yml
+  #ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=mongodb roboshop.yml
 
   become: yes # to execute as a root user
   roles:
