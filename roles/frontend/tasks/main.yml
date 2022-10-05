@@ -10,7 +10,8 @@
 # in order to clean up old content on nginx keep the dest loc default as tmp folder. document cmd: cd /usr/share/nginx/html, rm -rf *
     dest: /tmp  # while unzipping file is downloading as frontend-main
     remote_src: yes
-- name: claenup teh old content
+
+- name: claenup the old content
   ansible.builtin.file:
     path: /usr/share/nginx/html  # rm -rf *
     state: absent # delete all directories inside the html
