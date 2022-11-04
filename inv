@@ -7,3 +7,22 @@ mongodb.roboshop.internal
 
 [catalogue]
 catalogue.roboshop.internal
+
+[user]
+user.roboshop.internal
+
+
+[reddis]
+reddis.roboshop.internal
+
+[cart]
+cart.roboshop.internal
+
+[rabbitmq]
+rabbitmq.roboshop.internal
+
+[mysql]
+mysql.roboshop.internal
+
+[payment]
+payment.roboshop.internal
