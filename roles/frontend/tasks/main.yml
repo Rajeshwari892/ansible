@@ -3,13 +3,18 @@
     name: nginx
     state: present
 
-- name: Download and extract
-  ansible.builtin.unarchive:
-    src: "https://github.com/stans-robot-project/frontend/archive/main.zip"
+#- name: Download and extract
+ # ansible.builtin.unarchive:
+ #   src: "https://github.com/stans-robot-project/frontend/archive/main.zip"
 #   dest: /usr/share/nginx/html 
 # in order to clean up old content on nginx keep the dest loc default as tmp folder. document cmd: cd /usr/share/nginx/html, rm -rf *
-    dest: /tmp  # while unzipping file is downloading as frontend-main
-    remote_src: yes
+ #   dest: /tmp  # while unzipping file is downloading as frontend-main
+ #   remote_src: yes
+
+ - name:  Download and extract {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: download-and-extract  
 
 - name: claenup the old content
   ansible.builtin.file:
@@ -25,15 +30,15 @@
 # when u do, git clone https://github.com/stans-robot-project/frontend; cd frontend, ls -ltr cat loaclconf.host, u get to see proxy file
 #  mv localhost.conf /etc/nginx/default.d/roboshop.conf ; need to copy and paste in that location
 
-- name: copy the frontend context to nginx path
+- name: copy proxy config
   ansible.builtin.copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf # remote_src is not req as source  is in frontend
+  notify: Restarting Nginx Service
 
-- name: Starting the nginx service
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
-    enabled: yes
+- name: Configuing system name 
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: set-hostname
 
 
