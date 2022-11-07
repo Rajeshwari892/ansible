@@ -11,9 +11,8 @@ catalogue.roboshop.internal
 [user]
 user.roboshop.internal
 
-
-[reddis]
-reddis.roboshop.internal
+[redis]
+redis.roboshop.internal
 
 [cart]
 cart.roboshop.internal
