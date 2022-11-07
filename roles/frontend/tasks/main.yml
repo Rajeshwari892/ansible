@@ -11,21 +11,29 @@
  #   dest: /tmp  # while unzipping file is downloading as frontend-main
  #   remote_src: yes
 
+- name: Starting Nginx Service 
+  ansible.builtin.service:
+    name: nginx 
+    state: started
+    enabled: yes
+
 - name:  Download and extract {{COMPONENT}}
   ansible.builtin.include_role:
     name: common 
-    tasks_from: download-and-extract  
+    tasks_from: download-and-extract 
 
-- name: claenup the old content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html  # rm -rf *
-    state: absent # delete all directories inside the html
+# Uncomment it only for downloading from Github
+# - name: Cleanup of old html content 
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent
 
-- name: copy the frontend context to nginx path
-  ansible.builtin.copy:
-    src: /tmp/frontend-main/static/ #  static/ (slash after static word)-> will copy the content inside it
-    dest: /usr/share/nginx/html
-    remote_src: yes
+# - name: Coping frotend context to nginx path 
+#   ansible.builtin.copy:
+#     src: /tmp/frontend-main/static/
+#     dest: /usr/share/nginx/html
+#     remote_src: yes 
+
 
 # when u do, git clone https://github.com/stans-robot-project/frontend; cd frontend, ls -ltr cat loaclconf.host, u get to see proxy file
 #  mv localhost.conf /etc/nginx/default.d/roboshop.conf ; need to copy and paste in that location
