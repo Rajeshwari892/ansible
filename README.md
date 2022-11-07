@@ -71,7 +71,57 @@ Ansible playbooks should always ends with .yml or .yaml. Anything apart from tha
 
 ```
 
-to execuute a playbook
+
 ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 01-sample.yml
+ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=catalogue roboshop.yml
+
+
 
 ``` 
+
+FORLOOP:
+
+``` 
+for i in mongodb catalogue redis cart user mysql shipping frontend; do ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=$i roboshop.yml; done
+
+With Environments,
+
+git pull ; for i in mongodb catalogue redis cart user mysql shipping rabbitmq payment frontend; do ansible-playbook -i dev-inv -e ansible_user=centos -e ansible_password=DevOps321 -e ENV=dev -e COMPONENT=$i roboshop.yml; done
+
+
+``` 
+Command to encrypt a string in ansible
+
+``` 
+ansible-vault encrypt_string abc123
+
+``` 
+Command to run an encrypted playbook
+``` 
+ansible-playbook --ask-vault-password 10-secret.yml
+
+``` 
+Ansible-Pull
+For ansible pull to work you need to ensure that the machine which executes the pull command has ANSIBLE Installed on the machine.
+
+``` 
+ansible-pull -U https://github.com/b50-clouddevops/ansible.git -e COMPONENT=frontend -e ENV=dev roboshop-pull.yml
+
+``` 
+Ansible Tags
+``` 
+ansible-playbook 13-tags.yml  --skip-tags  web
+ansible-playbook 13-tags.yml  -t web
+``` 
+
+Test Commits for the ansible-pull
+Ansible pull needs ansible to installed and ensure version6 is the installed version
+
+HHow to create an AMI with ANSIBLE ?
+
+1. Launch the machine with our lab image
+2. Install ansible with curl command and also install boto : $ sudo pip3 install boto
+3. Once Installed , make an AMI and ensure that comes to available state
+4. Going forward for all the machines that needs needs ansible use this AMI.
+5. Which will be having ANSIBLE installed on it.
+
