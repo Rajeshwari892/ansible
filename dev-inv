@@ -27,12 +27,4 @@ rabbitmq-dev.roboshop.internal
 
 [payment]
 payment-dev.roboshop.internal
-
-# roboshop.internal
-# roboshop.internal
-# roboshop.internal
-# roboshop.internal
-# roboshop.internal
-# roboshop.internal
-# roboshop.internal
-# roboshop.internal
+payment.roboshop.internal

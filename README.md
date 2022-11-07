@@ -74,7 +74,6 @@ Ansible playbooks should always ends with .yml or .yaml. Anything apart from tha
 
 ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 01-sample.yml
 ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=catalogue roboshop.yml
-<<<<<<< HEAD
 
 
 
@@ -107,8 +106,6 @@ For ansible pull to work you need to ensure that the machine which executes the 
 
 ``` 
 ansible-pull -U https://github.com/b50-clouddevops/ansible.git -e COMPONENT=frontend -e ENV=dev roboshop-pull.yml
-=======
->>>>>>> 9e43caad15d58c1a38ffb342b3823c24be49a50f
 
 ``` 
 Ansible Tags
