@@ -11,7 +11,7 @@
  #   dest: /tmp  # while unzipping file is downloading as frontend-main
  #   remote_src: yes
 
- - name:  Download and extract {{COMPONENT}}
+- name:  Download and extract {{COMPONENT}}
   ansible.builtin.include_role:
     name: common 
     tasks_from: download-and-extract  
