@@ -1,5 +1,0 @@
-# If any event happens then only I want to run this task
-- name: Restarting Nginx Service 
-  ansible.builtin.service:
-    name: nginx 
-    state: restarted

@@ -1,11 +1,11 @@
 [frontend]
-frontend-prod.roboshop.internal
+frontend.roboshop.internal
 
 [mongodb]
-mongodb-prod.roboshop.internal
+mongodb.roboshop.internal
 
 [catalogue]
-catalogue-prod.roboshop.internal
+catalogue.roboshop.internal
 
 [redis]
 redis-prod.roboshop.internal
