@@ -1,2 +1,1 @@
-APPUSER: root 
-APP_LOCATION: /tmp 
+COMPONENT: mysql 

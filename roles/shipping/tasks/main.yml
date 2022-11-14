@@ -1,6 +1,4 @@
-# Calling a task from another role 
-- name: Maven Configuration 
+- name: Configuring Java Component 
   ansible.builtin.include_role:
-    name: common 
-    tasks_from: maven   #If you don't mention this, by def it calls main.yml 
-
+    name: common
+    tasks_from: maven
