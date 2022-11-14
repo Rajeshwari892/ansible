@@ -1,3 +1,3 @@
-# # This tellls the roll catalogue, before you run Catalogue , MongoDB Should be running 
+# # This tellls the role catalogue, before you run Catalogue , MongoDB Should be running 
 # dependencies:
 #   - role: frontend 
