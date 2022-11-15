@@ -38,13 +38,13 @@
   ansible.builtin.lineinfile:
     path:  /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^uid'
-    line: uid = {{APP_USER_INFO.uid}}
+    line: uid = {{APPUSER_REGISTER.uid}}
 
 - name: Updating the Group ID 
   ansible.builtin.lineinfile:
     path:  /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
-    line: gid = {{APP_USER_INFO.group}}
+    line: gid = {{APPUSER_REGISTER.group}}
 
 - name: Configuring the service 
   ansible.builtin.include_role:
