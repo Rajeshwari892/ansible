@@ -36,8 +36,9 @@
         src: root_password.mysql
         dest: /tmp/root_password.mysql
 
-    - name: Uninstalling the Plugin 
-      ansible.builtin.shell: mysql -uroot -pRoboShop@1 < /tmp/password-validate.sql
+    - name: Reset MySQL Default Password
+      ansible.builtin.shell:  mysql  --connect-expired-password  -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}"  < /tmp/root_password.mysql
+      register: DEFAULT_ROOT_PASSWORD
  
 - name: Checking Password validate Plugin 
   ansible.builtin.shell: echo show plugins; | mysql -uroot -pRoboShop@1  | grep validate_password
