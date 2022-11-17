@@ -54,7 +54,8 @@
         dest: /tmp/password_validate.mysql
      
      - name: Uninstall password validate plugin 
-       ansible.builtin.shell:  mysql  --connect-expired-password  -uroot -pRoboShop@1  < /tmp/password_validate.mysql 
+       ansible.builtin.shell: echo "uninstall plugin validate_password;" |  mysql -uroot -pRoboShop@1  
+       ignore_errors: yes
 
 - name: Download and extracting MySQL 
   ansible.builtin.include_role:
