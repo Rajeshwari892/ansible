@@ -101,7 +101,7 @@ Command to run an encrypted playbook
 ansible-playbook --ask-vault-password 10-secret.yml
 
 ``` 
-Ansible-Pull
+Ansible-Pull // instead of pushing code to github and the git pull, and ansible-playbookm executing, we use ansible-pull
 For ansible pull to work you need to ensure that the machine which executes the pull command has ANSIBLE Installed on the machine.
 
 ``` 
